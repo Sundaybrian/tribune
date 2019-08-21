@@ -23,5 +23,8 @@ class Article(models.Model):
     #one aricle has one author
     editor=models.ForeignKey(Editor)  
     #since one article can have many tags
-    tags=models.ManyToManyField(Tags)      
+    tags=models.ManyToManyField(Tags) 
+
+    #save exact time article is published 
+    pub_date=models.DateTimeField(auto_now_add=True)    
 
