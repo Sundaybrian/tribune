@@ -10,6 +10,12 @@ class Editor(models.Model):
     def __str__(self):
         return self.first_name
 
+    class Meta:
+        ordering=['first_name']   
+
+    def save_editor(self):
+        self.save()     
+
 
 class Tags(models.Model):
     name=models.CharField(max_length=30)
@@ -21,7 +27,7 @@ class Article(models.Model):
     title=models.CharField(max_length=60)
     post=models.TextField()
     #one aricle has one author
-    editor=models.ForeignKey(Editor)  
+    editor=models.ForeignKey('Editor',on_delete=models.CASCADE)  
     #since one article can have many tags
     tags=models.ManyToManyField(Tags) 
 
