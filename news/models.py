@@ -17,3 +17,11 @@ class Tags(models.Model):
     def __str__(self):
         return self.name
 
+class Article(models.Model):
+    title=models.CharField(max_length=60)
+    post=models.TextField()
+    #one aricle has one author
+    editor=models.ForeignKey(Editor)  
+    #since one article can have many tags
+    tags=models.ManyToManyField(Tags)      
+
