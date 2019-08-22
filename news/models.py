@@ -35,6 +35,8 @@ class Article(models.Model):
     #save exact time article is published 
     pub_date=models.DateTimeField(auto_now_add=True)  
 
+    article_image=models.ImageField(upload_to='articles/',default='')
+
     @classmethod
     def todays_news(cls):
         today = dt.date.today()
