@@ -15,13 +15,12 @@ def news_of_day(request):
             email=form.cleaned_data['email']
             recipient=NewsLetterRecipients(name=name,email=email)
             recipient.save()
-            
-            HttpResponseRedirect('news_of_day')
 
+            HttpResponseRedirect('news_of_day')
 
     else:
         form=NewsLetterForm()    
-    return render(request,'all-news/today-news.html',{'date':date,'news':news,'letterform':form})    
+    return render(request,'all-news/today-news.html',{'date':date,'news':news,'letterForm':form})    
 
 def convert_dates(dates):
     '''
