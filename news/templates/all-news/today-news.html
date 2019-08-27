@@ -26,6 +26,14 @@
   </div>
   {% endfor %}
 
+  <div class="container-fluid">
+    <form action="{% url 'newToday' %}" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form letterForm layout='inline' %}
+      <input type="submit" value='Subcribe' id="">
+    </form>
+  </div>
+
 </div>
 
 {% endblock %}
