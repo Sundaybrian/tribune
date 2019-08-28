@@ -1,6 +1,8 @@
 from django.db import models
 import datetime as dt
 from django.contrib.auth.models import User
+from tinymce.models import HTMLField
+
 # Create your models here.
 
 # class Editor(models.Model):
@@ -27,7 +29,7 @@ class Tags(models.Model):
 
 class Article(models.Model):
     title=models.CharField(max_length=60)
-    post=models.TextField()
+    post=HTMLField()
     #one aricle has one author
     editor=models.ForeignKey('User',on_delete=models.CASCADE)  
     #since one article can have many tags
