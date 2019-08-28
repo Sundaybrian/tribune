@@ -1,5 +1,6 @@
 from django.db import models
 import datetime as dt
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Editor(models.Model):
@@ -28,7 +29,7 @@ class Article(models.Model):
     title=models.CharField(max_length=60)
     post=models.TextField()
     #one aricle has one author
-    editor=models.ForeignKey('Editor',on_delete=models.CASCADE)  
+    editor=models.ForeignKey('User',on_delete=models.CASCADE)  
     #since one article can have many tags
     tags=models.ManyToManyField(Tags) 
 
