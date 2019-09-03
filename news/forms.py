@@ -6,7 +6,7 @@ class NewsLetterForm(forms.Form):
     email=forms.EmailField(label='Email')
 
 
-class NewsArticleForm(forms.ModelForm):
+class NewArticleForm(forms.ModelForm):
     class Meta:
         model=Article
         exclude=['editor','pub_date']

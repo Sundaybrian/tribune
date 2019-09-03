@@ -5,7 +5,7 @@ def send_welcome_email(name,receiver):
     #creating mssg subject and sender
     # Creating message subject and sender
     subject = 'Welcome to the MoringaTribune NewsLetter'
-    sender = 'james@moringaschool.com'
+    sender = 'brians931@gmail.com'
 
     #passing in the context vairables
     text_content = render_to_string('email/newsemail.txt',{"name": name})

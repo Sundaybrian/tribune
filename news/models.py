@@ -31,7 +31,7 @@ class Article(models.Model):
     title=models.CharField(max_length=60)
     post=HTMLField()
     #one aricle has one author
-    editor=models.ForeignKey('User',on_delete=models.CASCADE)  
+    editor=models.ForeignKey(User,on_delete=models.CASCADE)  
     #since one article can have many tags
     tags=models.ManyToManyField(Tags) 
 
