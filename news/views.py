@@ -64,6 +64,15 @@ class MerchDescription(APIView):
         serializers = MerchSerializer(merch)
         return Response(serializers.data)
 
+    def put(self, request, pk, format=None):
+        merch = self.get_merch(pk)
+        serializers = MerchSerializer(merch, request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)    
+
 
 
 def convert_dates(dates):
